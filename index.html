@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration form</title>
+</head>
+<body style="background-image: url(./images/pngtree-glass-morphism-background-in-horizontal-editable-vector-image-image_794074.jpg);background-size: cover; ">
+    
+     
+ <form style="background-color: transparent; padding: 50px; text-align: center; width: 500px; margin-left: 400px; margin-top: 200px;">
+      <h1 style="text-align: center; color: black; ">Registraion Form</h1>
+ <table  style="margin-left: 120px;">
+
+    <tr >
+        <td style="color: black;">Name :</td>
+        <td><input id="inputbox" required type="text" placeholder="Enter your Name">
+
+<span class="nameerror" style="color: red; display: none;">Please enter your name </span>
+    </tr>
+    <br>
+
+        <tr>
+        <td style="color: black;">Email :</td>
+        <td><input id="Email" required type="text" placeholder="Enter your Email">
+
+<span class="mailerror" style="color: red; display: none;">Please enter valid mail id </span>
+    </tr>
+    <br>
+
+
+
+        <tr>
+        <td style="color: black;">Password :</td>
+        <td><input id="password"  required type="text" placeholder="Enter your password">
+<span id="passworderror" class="passworderror" style="color: red; display: none;">Please enter password atleast 6 characters </span>
+    </tr>
+    <br>
+    <tr>
+        <td> <input id="submit" type="submit" style="margin-top: 10px; color: red; padding: 10px; border-radius: 20px; box-shadow: 10px;"> </td>
+    </tr>
+ </table>
+ </form>
+
+ <script>
+
+//  selecting elements 
+
+let input=document.getElementById("inputbox")
+let email=document.getElementById("Email")
+let password=document.getElementById("password")
+let submit=document.getElementById("submit")
+
+
+
+// giving function
+submit.addEventListener("click", function(validation){
+    event.preventDefault()
+
+    let namerex= /^[a-zA-Z]+$/
+    let emailregex=/^[a-zA-Z0-9]+@gmail\.com/
+    let passwordregex=/[a-zA-Z0-9]{6,}$/
+
+
+    let isValid=true;
+
+    if(namerex.test(input.value) == false)
+{
+    document.querySelector(".nameerror").style.display="block"
+   isValid=false;
+}
+
+else{
+    document.querySelector(".nameerror").style.display="none"
+}
+ 
+
+// email
+
+ if(emailregex.test(email.value) == false)
+{
+    document.querySelector(".mailerror").style.display="block"
+   isValid=false;
+}
+else{
+    document.querySelector(".mailerror").style.display="none"
+}
+
+
+// /
+
+ if(passwordregex.test(password.value) == false)
+{
+    document.querySelector(".passworderror").style.display="block"
+    isValid =false;
+}
+else{
+    document.querySelector(".passworderror").style.display="none"
+}
+
+if(isValid === true)
+{
+alert("resigtration successfull");
+
+}
+
+})
+
+
+ </script>
+
+
+</body>
+</html>
+
+ 
+
+
